@@ -64,3 +64,26 @@ Running `offset_mosaic.py` to adjust background for individual snapshots
 -------
 
 The background values in UVOT images are known to change, likely due to scattered light from the Earth/sun/moon, but sometimes also from UV-bright sources in or near the field of view.  `offset_mosaic.py` is being written to do offsets between snapshots to better account for this.
+
+Remove images with small snapshots
+
+The background values due to scattered light from the Earth/sun/moon are adjusted for each target id to match each other. This process creates several files in `~\example`:
+- `test_offset_[obsid]_ff_cr.fits`: count rate image for given target id
+- `test_offset_[obsid]_ff_ex.fits`: cumulative exposure map
+- `test_offset_[obsid]_ff_ex_all.fits`: each extension is an exposure map 
+- `test_offset_[obsid]_ff_sk.fits`: cumulative counts ("sky") image
+- `test_offset_[obsid]_ff_sk_all.fits`: each extension is a counts ("sky") image
+- `test_offset_[obsid]_ff_sk_off.fits`: cumulative counts ("sky") image with background offset accounted for
+- `test_offset_[obsid]_ff_sk_off_all.fits`: each extension is counts ("sky") image with background offset accounted for
+
+Once this correction has been applied for each target id, the files are combined and stacked. The final result are the following files in the `~\example' directory:
+- `test_offset_ff_cr.fits`: count rate image for given target id
+- `test_offset_ff_cr_bgsub.fits`: count rate image for given target id with the background subtracted
+- `test_offset_ff_ex.fits`: cumulative exposure map
+- `test_offset_ff_ex_all.fits`: each extension is an exposure map 
+- `test_offset_ff_sk.fits`: cumulative counts ("sky") image
+- `test_offset_ff_sk_all.fits`: each extension is a counts ("sky") image
+- `test_offset_ff_sk_off.fits`: cumulative counts ("sky") image with background offset accounted for
+- `test_offset_ff_sk_off_all.fits`: each extension is counts ("sky") image with background offset accounted for
+
+These files are the final products that can then be used to do photometry, following the code in `uvot-galphot`.
