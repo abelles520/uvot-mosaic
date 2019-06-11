@@ -65,7 +65,7 @@ Running `offset_mosaic.py` to adjust background for individual snapshots
 
 The background values in UVOT images are known to change, likely due to scattered light from the Earth/sun/moon, but sometimes also from UV-bright sources in or near the field of view.  `offset_mosaic.py` is being written to do offsets between snapshots to better account for this.
 
-Remove images with small snapshots
+Images with small snapshots are removed. This was added for the UV filters based on reasonable values for M31, estimated by LMZH. No work has been done on the optical filters so their minimum length is set to 0 by default. 
 
 The background values due to scattered light from the Earth/sun/moon are adjusted for each target id to match each other. This process creates several files in `~\example`:
 - `test_offset_[obsid]_ff_cr.fits`: count rate image for given target id
