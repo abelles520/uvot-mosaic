@@ -76,7 +76,7 @@ The background values due to scattered light from the Earth/sun/moon are adjuste
 - `test_offset_[obsid]_ff_sk_off.fits`: cumulative counts ("sky") image with background offset accounted for
 - `test_offset_[obsid]_ff_sk_off_all.fits`: each extension is counts ("sky") image with background offset accounted for
 
-Once this correction has been applied for each target id, the files are combined and stacked. The final result are the following files in the `~\example' directory:
+Once this correction has been applied for each target id, the files are combined and stacked. The final result are the following files in the `~\example` directory:
 - `test_offset_ff_cr.fits`: count rate image for given target id
 - `test_offset_ff_cr_bgsub.fits`: count rate image for given target id with the background subtracted
 - `test_offset_ff_ex.fits`: cumulative exposure map
