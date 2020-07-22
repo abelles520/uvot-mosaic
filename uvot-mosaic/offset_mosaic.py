@@ -373,8 +373,8 @@ def mask_image(hdu, reg_file):
     # read in the ds9 file
     regions = read_ds9(reg_file)
     # get ra/dec/radius (all in degrees)
-    reg_ra = np.array( [regions[i].center.ra.deg[0] for i in range(len(regions))] )
-    reg_dec = np.array( [regions[i].center.dec.deg[0] for i in range(len(regions))] )
+    reg_ra = np.array( [regions[i].center.ra.deg for i in range(len(regions))] )
+    reg_dec = np.array( [regions[i].center.dec.deg for i in range(len(regions))] )
     reg_rad_deg = np.array( [regions[i].radius.value for i in range(len(regions))] )/3600
 
     # go through each extension and mask
